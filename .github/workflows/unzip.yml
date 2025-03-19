@@ -1,0 +1,24 @@
+name: Unzip File and Commit
+
+on:
+  workflow_dispatch:  # Allows you to manually trigger the workflow
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Unzip File
+      run: unzip -o audio_sequencer.zip -d .
+
+    - name: Commit Changes
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+        git add .
+        git commit -m "Extracted ZIP file"
+        git push
+      continue-on-error: true  # Prevents errors if no changes are detected
