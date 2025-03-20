@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Sequencer</title>
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wavesurfer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.8.26/build/Tone.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #sequencer { display: grid; grid-template-columns: repeat(8, 50px); gap: 5px; justify-content: center; margin-top: 20px; }
+        .step { width: 50px; height: 50px; background-color: lightgray; border-radius: 5px; cursor: pointer; }
+        .active { background-color: green; }
+    </style>
+</head>
+<body>
+    <h1>Audio Sequencer</h1>
+    <input type="file" id="audioFile">
+    <div id="waveform"></div>
+    <button id="play">Play</button>
+    <button id="stop">Stop</button>
+    <div id="sequencer"></div>
+</body>
+</html>
